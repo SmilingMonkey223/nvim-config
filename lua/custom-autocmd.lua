@@ -86,7 +86,10 @@ api.nvim_create_autocmd({ "FocusGained", "CursorHold" }, {
 api.nvim_create_autocmd("VimResized", {
   group = api.nvim_create_augroup("win_autoresize", { clear = true }),
   desc = "autoresize windows on resizing operation",
-  command = "wincmd =",
+  callback = function()
+    vim.cmd("wincmd =")
+    vim.cmd("redraw!")
+  end,
 })
 
 local function open_nvim_tree(data)
