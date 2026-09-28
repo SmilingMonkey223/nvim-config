@@ -9,7 +9,7 @@ nnoremap <silent> <C-6> <C-^>
 " To check if neovim-qt is running, use `exists('g:GuiLoaded')`,
 " see https://github.com/equalsraf/neovim-qt/issues/219
 if exists('g:GuiLoaded')
-  " call GuiWindowMaximized(1)
+  call GuiWindowMaximized(1)
   GuiTabline 0
   GuiPopupmenu 0
   GuiLinespace 2
@@ -64,6 +64,7 @@ endif
 "                             config for neovide                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists("g:neovide")
+  set lines=999 columns=999
   set background=dark
   let g:neovide_transparency = 1.0
   let g:neovide_cursor_animation_length = 0.1

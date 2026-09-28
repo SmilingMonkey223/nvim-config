@@ -442,6 +442,12 @@ require("lualine").setup {
     lualine_z = {
       "progress",
       {
+        function()
+          return os.date("%H:%M")
+        end,
+        icon = "",
+      },
+      {
         virtual_env,
         color = { fg = "black", bg = "#F1CA81" },
       },

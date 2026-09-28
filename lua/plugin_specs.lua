@@ -220,22 +220,23 @@ local plugin_specs = {
     dependencies = { "rktjmp/lush.nvim" },
     name = "arctic",
     branch = "v2",
+    lazy = true,
   },
   { "rebelot/kanagawa.nvim", lazy = true },
-  { "miikanissi/modus-themes.nvim", priority = 1000 },
-  { "wtfox/jellybeans.nvim", priority = 1000 },
-  { "projekt0n/github-nvim-theme", name = "github-theme" },
-  { "ficcdaf/ashen.nvim", priority = 1000 },
-  { "savq/melange-nvim", priority = 1000 },
-  { "Skardyy/makurai-nvim", priority = 1000 },
-  { "vague2k/vague.nvim", priority = 1000 },
-  { "webhooked/kanso.nvim", priority = 1000 },
-  { "zootedb0t/citruszest.nvim", priority = 1000 },
-  { "nyoom-engineering/oxocarbon.nvim", priority = 1000 },
-  { "ember-theme/nvim", name = "ember", priority = 1000 },
-  { "yonatanperel/lake-dweller.nvim", priority = 1000 },
-  { "dchinmay2/alabaster.nvim", priority = 1000 },
-  { "jpwol/thorn.nvim", priority = 1000 },
+  { "miikanissi/modus-themes.nvim", lazy = true },
+  { "wtfox/jellybeans.nvim", lazy = true },
+  { "projekt0n/github-nvim-theme", name = "github-theme", lazy = true },
+  { "ficcdaf/ashen.nvim", lazy = true },
+  { "savq/melange-nvim", lazy = true },
+  { "Skardyy/makurai-nvim", lazy = true },
+  { "vague2k/vague.nvim", lazy = true },
+  { "webhooked/kanso.nvim", lazy = true },
+  { "zootedb0t/citruszest.nvim", lazy = true },
+  { "nyoom-engineering/oxocarbon.nvim", lazy = true },
+  { "ember-theme/nvim", name = "ember", lazy = true },
+  { "yonatanperel/lake-dweller.nvim", lazy = true },
+  { "dchinmay2/alabaster.nvim", lazy = true },
+  { "jpwol/thorn.nvim", lazy = true },
 
   -- plugins to provide nerdfont icons
   {
@@ -435,7 +436,6 @@ local plugin_specs = {
   -- Git command inside vim
   {
     "tpope/vim-fugitive",
-    event = "User InGitRepo",
     config = function()
       require("config.fugitive")
     end,
@@ -749,15 +749,6 @@ local plugin_specs = {
       require("config.which-key")
     end,
   },
-  {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    opts = {},
-    config = function()
-      require("config.snacks")
-    end,
-  },
   -- show and trim trailing whitespaces
   { "nvim-zh/whitespace.nvim", event = "VeryLazy" },
 
@@ -825,19 +816,6 @@ local plugin_specs = {
     event = "FileType qf",
     config = function()
       require("config.quicker")
-    end,
-  },
-  {
-    "nickjvandyke/opencode.nvim",
-    config = function()
-      ---@module "opencode"
-      ---@type opencode.Opts
-      vim.g.opencode_opts = {
-        -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on the type or field.
-      }
-
-      -- Required for `opts.events.reload`.
-      vim.o.autoread = true
     end,
   },
   {

@@ -143,30 +143,8 @@ M.rand_colorscheme = function()
   return colorscheme
 end
 
-M.rand_colorscheme()
-
--- enable the experiment UI
-require("vim._core.ui2").enable {
-  enable = true,
-  msg = { -- Options related to the message module.
-    targets = {
-      [""] = "cmd",
-      empty = "msg",
-    },
-    cmd = { -- Options related to messages in the cmdline window.
-      height = 0.4, -- Maximum height while expanded for messages beyond 'cmdheight'.
-    },
-    dialog = { -- Options related to dialog window.
-      height = 0.4, -- Maximum height.
-    },
-    msg = { -- Options related to msg window.
-      height = 0.4, -- Maximum height.
-      timeout = 1000, -- Time a message is visible in the message window.
-    },
-    pager = { -- Options related to message window.
-      height = 0.4, -- Maximum height.
-    },
-  },
-}
+-- Use one fixed, fast theme. Random themes make startup slower and inconsistent
+-- between sessions.
+M.colorscheme_conf.everforest()
 
 return M
