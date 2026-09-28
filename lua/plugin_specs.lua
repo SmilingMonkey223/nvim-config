@@ -70,7 +70,59 @@ local blink_plugin_specs = {
 
 local plugin_specs = {
   {
+    "williamboman/mason.nvim",
+    build = ":MasonUpdate",
+    opts = {
+      PATH = "prepend",
+    },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    opts = {
+      ensure_installed = {
+        -- Required by this config
+        "lua-language-server",
+        "stylua",
+        -- Rust
+        "rust-analyzer",
+        -- Python
+        "pyright",
+        "ruff",
+        "debugpy",
+      },
+      auto_update = false,
+      run_on_start = true,
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
+  },
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    config = function()
+      require("config.conform")
+    end,
+  },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^6",
+    ft = { "rust" },
+    init = function()
+      vim.g.rustaceanvim = {
+        server = {
+          default_settings = {
+            ["rust-analyzer"] = {
+              check = {
+                command = "clippy",
+              },
+            },
+          },
+        },
+      }
+    end,
   },
   {
     "dnlhc/glance.nvim",

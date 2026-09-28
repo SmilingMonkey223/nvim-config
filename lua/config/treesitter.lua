@@ -15,6 +15,7 @@ local ensure_installed = {
   "lua",
   "markdown",
   "python",
+  "rust",
   "sh",
   "tex",
   "toml",
