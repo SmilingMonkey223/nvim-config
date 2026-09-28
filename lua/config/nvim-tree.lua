@@ -36,7 +36,12 @@ nvim_tree.setup {
   diagnostics = {
     enable = false,
     show_on_dirs = false,
-    icons = symbol_icon.diagnostic,
+    icons = {
+      hint = symbol_icon.diagnostic.hint,
+      info = symbol_icon.diagnostic.info,
+      warning = symbol_icon.diagnostic.warn,
+      error = symbol_icon.diagnostic.error,
+    },
   },
   filters = {
     dotfiles = false,
